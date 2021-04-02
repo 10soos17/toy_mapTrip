@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+
+    <script src="js/iframe.js"></script>
+    <script src="js/mymap.js"></script>
+    <link rel="stylesheet" href="css/mymap.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Cute+Font&display=swap" rel="stylesheet">
+    <!--link href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap" rel="stylesheet"!-->
+
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.2.0/lib/p5.min.js"></script>
+
+    <!--script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script!-->
+    <script async
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBXLXMTj-ddKXHVPIvnsjafnaMniblNWaw&callback=initMap&&libraries=places">
+    </script>
+
+    <title>Map</title>
+
+  </head>
+
+  <body>
+    <!--label for="searchHolder" id="searchLabel">Marker</label!-->
+    <button id="showBtn" onclick="get_db();">show</button>
+    <input type="text" id="searchHolder" name="search_holder" placeholder="Enter..." maxlength="150"></input>
+    <button id="searchBtn" onclick="search_place();">mark</button>
+
+    <!--===================select place===================!-->
+    <select id="selectPlace" onchange="select_area();">
+      <option value="earth">earth</option>
+      <option value="moon">moon</option>
+      <option value="korea">korea</option>
+      <option value="seoul">seoul</option>
+      <option value="jeju">jejudo</option>
+      <option value="japan">japan</option>
+      <option value="kalimantan">kalimantan</option>
+      <option value="tailand">japan</option>
+      <option value="europe">europe</option>
+      <option value="finland">finland</option>
+      <option value="spain">spain</option>
+    </select>
+
+    <div id="mapframe">
+      <div id="my_map"></div>
+    </div>
+
+  </body>
+</html>

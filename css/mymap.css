@@ -1,0 +1,104 @@
+/*var invisible = 'rgb(0,0,0,0)';
+
+var white = 'rgb(255,255,255,1)';
+var black = 'rgb(0,0,0,1)';
+var lightgray = 'rgb(220,220,220,1)';
+var middlegray = 'rgb(200,200,200,1)';
+var deepgray = 'rgb(105, 105, 105,1)';
+
+var deepbrown = 'rgb(25, 11, 10,1)';
+var deepgreen = 'rgb(47,79,79,1)';
+var shinegreen = 'rgb(0, 250, 235,1)';
+
+var pastelpink = 'rgb(193,147,145,1)';//rgb(188, 143, 143,1)
+var red = 'rgb(128, 0, 0,1)';
+var pinkred = 'rgb(165,  42,  42,1)';
+var shinered = 'rgb(220, 20, 60,1)';*/
+
+*{font-family: 'Cute Font', cursive;}
+/**{font-family: 'Nanum Pen Script', cursive;}*/
+
+html, body{
+  height: 90%;
+}
+
+#my_map{
+  height: 90%;
+  margin-left: 70px;
+  margin-right: 70px;
+  margin-top: 50px;
+  padding: 0px;
+}
+
+#mapframe{
+  height:100%;
+  overflow:auto;
+  overflow-x:no;
+}
+
+#selectPlace{
+  position: absolute;
+  width: 7%;
+  right:87%;
+
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow: ellipsis;
+
+  margin: 5px auto;
+  padding:2px;
+  font-size: 15px;
+
+  border-radius: 4px;
+  border:1px solid;
+
+  color: rgb(0, 250, 235);
+  border-color:rgb(0, 250, 235);
+  background-color: rgb(25, 11, 10);
+
+  transition: all 0.3s;
+}
+
+#showBtn{
+  position: absolute;
+  right:84%;
+  margin: 5px auto;
+  padding:2px;
+  font-size: 15px;
+
+  border-radius: 4px;
+  border:1px solid;
+  color: rgb(0, 250, 235);
+  border-color:rgb(0, 250, 235);
+  background-color: rgb(25, 11, 10);
+}
+
+#searchBtn{
+  position: absolute;
+  right: 5%;
+  margin: 5px auto;
+  padding:2px;
+  font-size: 15px;
+
+  border-radius: 4px;
+  border:1px solid;
+  color: rgb(0, 250, 235);
+  border-color:rgb(0, 250, 235);
+  background-color: rgb(25, 11, 10);
+}
+
+#searchHolder{
+  position: absolute;
+  width: 10%;
+  right: 8%;
+  margin: 5px auto;
+  padding:2px;
+  font-size: 15px;
+
+  border-radius: 0px;
+  border:1px solid;
+
+  color: rgb(255, 255, 255);
+  border-color:rgb(0, 250, 235);
+  background-color: rgb(255, 255, 255, 0.2);/*--->color change에서 제외하기*/
+}

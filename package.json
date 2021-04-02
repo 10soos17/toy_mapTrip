@@ -1,0 +1,25 @@
+{
+  "name": "hobby_mymap_web",
+  "version": "1.0.0",
+  "description": "mymap",
+  "main": "s.js",
+  "scripts": {
+    "start": "babel-node s.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "serve": "http-serve -c-1"
+  },
+  "author": "Soo Shin",
+  "license": "ISC",
+  "homepage": "",
+  "dependencies": {
+    "@babel/core": "^7.12.10",
+    "@babel/node": "^7.12.10",
+    "@babel/preset-env": "^7.12.11",
+    "express": "^4.17.1",
+    "http-serve": "^1.0.1",
+    "mysql": "^2.18.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  }
+}

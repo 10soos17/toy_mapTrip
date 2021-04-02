@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!--link rel="shortcut icon" href=""!-->
+    <!--linsk rel="shortcut icon" href="#"!-->
+    <!--link rel="icon" href="data:;base64,iVBORw0KGgo="!-->
+    <link rel="shortcut icon" href="data:image/x-icon;," type="image/x=icon">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <script src="js/top.js"></script>
+    <script src="js/mymap.js"></script>
+    <script src="js/iframe.js"></script>
+
+    <link rel="stylesheet" href="css/top.css">
+    <link rel="stylesheet" href="css/mymap.css">
+    <link rel="stylesheet" href="css/iframe.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Cute+Font&display=swap" rel="stylesheet">
+    <!--link href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap" rel="stylesheet"!-->
+
+    <title>i_frame</title>
+
+  </head>
+
+  <body>
+    <!--===================datetime===================!-->
+    <b id="datetime"></b>
+
+    <script>setInterval(get_datetime,500);</script>
+
+    <!--===================dropdown menu===================!-->
+    <div class="dropdown" style="float:right;">
+
+      <button class="dropbtn">⋯</button>
+        <div class="dropdown-content" style="right:0;">
+
+          <a href="/mymap.html" id="mymap" target=i_center>mymap</a>
+
+        </div>
+    </div>
+
+    <!--© ⧑⧒ ⧨⧩ ☀︎☼ ☽☾ ✴︎ ❊✼❉  ❄︎❆ ✻✽ ♛♕ ❥❤︎ ⟰⤊⬇︎ ◦● ≕≡ ⋯∶⋮ !-->
+    <!--===================selectColorBtn===================!-->
+    <select id="colorBtn">
+      <option id="iceBlackBtn">❄︎</option>
+      <option id="iceRedBtn">❆</option>
+      <option id="shineDeepgreenBtn">♕</option>
+      <option id="shinegreenRedBtn">♛</option>
+      <option id="grayPinkBtn">✻</option>
+      <option id="pinkGrayBtn">✽</option>
+    </select>
+
+      <!--✖︎✗✘☒☑︎⊗⊠ ✔︎☑︎!-->
+      <!--===================popup===================!-->
+      <div class="popup">
+        <div class="popup-content">
+          <!--form action="#" method="POST" enctype="text/plain"!-->
+          <!--form method=POST enctype="text/plain"!-->
+
+            <input type="submit" id= choosePopupBtn value="choose" onclick="choose_mycontents();" ></input>
+            <input type="submit" id= deletePopupBtn value="delete marker" onclick="delete_mycontents();"></input>
+
+            <div id="closePopup" onclick="close_popup();">+</div>
+
+            <div id="popup_mylist"></div>
+
+            <div class="popup-upload-image">
+              <label for="imagePopupButton" id="imagePopupLabel">Choose images to upload</label>
+              <input type="file" name="imagePopupButton" id="imagePopupFoam" onchange="get_imageInfo();" accept="image/*,.pdf" multiple></input><!--opacity죽입 칼라적용안함//webkitRelativePath !-->
+              <input type="submit" id= uploadPopupBtn value="upload" onclick="insert_image();" ></input>
+            </div>
+
+
+        </div>
+      </div>
+
+      <div class="popup-image">
+        <div class="popup-image-content">
+          <img id="imageFoam" src="" onclick="close_image();"></input>
+        </div>
+      </div>
+
+    <script>
+
+
+      //============================reload popupColor===========================
+      var tColor, bColor, wColor;
+      tColor = window.top.$('.dropdown-content a:hover').css("background-color");
+      bColor = window.top.$('#datetime').css('color');
+      wColor = window.top.$(".dropbtn").css('color');
+      //reload_popupCanvas(tColor, bColor, wColor);
+      //console.log(tColor, bColor, wColor);
+
+      //============================selectColorBtn event========================
+      document.getElementById("colorBtn").addEventListener("change", function(){
+        select_color(event);
+      });
+
+      //=============================message handle ============================
+      window.addEventListener('message', function(e) {
+
+        //console.log('e:',e,'e.data:',e.data,'e.origin:',e.origin);
+
+        //================i_top==============
+        if(e.data[0] === "i_mymap" && e.data[1] === "popup_marker"){
+          console.log("i_mymap_____popup_marker");
+        //  $('.popup').attr('display','flex');
+          document.querySelector('.popup').style.display = 'flex';
+        //  reload_popupCanvas(tColor, bColor, wColor);
+          popup_showMycontents(e.data[2]);
+
+        }
+        //var item = document.getElementById('top');
+        //item.contentDocument.location.reload();
+        //item.playlist = e.data; //$('#top',parent.frames[0].document).playlist = e.data;
+        //var stop = $('#top').contents().find('#stop').css("color", "red");
+        //$('#stop').css("color",white);
+
+        //delete_selectlist();
+        //make_selectlist();
+        //item.getElementById("pre").value = 'aaa';
+
+        //console.log('item.playlist:',item.playlist);//,'stop:',stop);
+        //console.log('e.data:',e.data,'item:',item,'e.origin:',e.origin);
+
+      //  targetWindow = window.opener;
+      //  console.log('targetWindow:',targetWindow);
+       //document.getElementById('center').contentWindow.postMessage(item, 'http://localhost:3000/center.html');
+        //targetWindow.postMessage(item, "http://localhost:3000/center.html");
+      });
+    </script>
+    <!--===================iframe===========================================!-->
+    <div>
+      <iframe id="top" name="i_top" src="/top.html" scrolling="no" allowfullscreen=true frameborder="0"
+              width="100%" height="20px" style="border:0px;"></iframe>
+      <iframe id="center" name="i_center" src="/mymap.html" scrolling="no" allowfullscreen=true frameborder="0"
+              width="100%" height="900px" style="border:0px;"></iframe>
+  </div>
+  </body>
+</html>
